@@ -9,22 +9,19 @@ function App() {
       return JSON.parse(savedApplications);
     }
 
-    return [
-      {
+    return [{
         id: 1,
         company: "Spotify",
         position: "Frontend Intern",
         dateApplied: "2026-07-25",
         status: "Applied",
-      },
-      {
+      },{
         id: 2,
         company: "Amazon",
         position: "Cloud Support Intern",
         dateApplied: "2026-07-28",
         status: "Interviewing",
-      },
-      {
+      },{
         id: 3,
         company: "Adobe",
         position: "Software Engineer Intern",
@@ -40,6 +37,7 @@ function App() {
   });
 
   const [editingId, setEditingId] = useState(null);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
   localStorage.setItem("applications", JSON.stringify(applications));
@@ -80,6 +78,7 @@ function App() {
 
   setApplications(updatedApplications);
   setEditingId(null);
+  setMessage("Application updated");
 } else {
   const newApplication = {
     id: Date.now(),
@@ -90,6 +89,7 @@ function App() {
   };
 
   setApplications([...applications, newApplication]);
+  setMessage("Application added");
 }
 
     setFormData({
@@ -97,7 +97,11 @@ function App() {
       position: "",
       dateApplied: "",
       status: "Applied",
-    });}
+    })
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
+  };
 
   function deleteApplication(id) {
   const updatedApplications = applications.filter((application) => {
@@ -125,8 +129,16 @@ function App() {
         <p>Organize and monitor your job applications.</p>
       </header>
 
-      <section className="application-form-section">
-        <h2>Add an Application</h2>
+      <section
+        className={
+          editingId === null
+            ?"application-form-section"
+            :"application-form-section editing"
+        }
+      >
+        <h2>
+          {editingId === null ? "Add an Application" : "Edit Application"}
+        </h2>
 
         <form className="application-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -183,6 +195,9 @@ function App() {
           {editingId === null ? "Add Application" : "Save Changes"}
         </button>
         </form>
+        {message !== "" && (
+          <p className="success-message">{message}</p>
+        )}
       </section>
 
       <section className="applications-section">

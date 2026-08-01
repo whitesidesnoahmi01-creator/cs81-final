@@ -138,3 +138,49 @@
 .edit-button:hover {
   background-color: #d9efec;
 }
+
+.application-form button,
+.edit-button,
+.delete-button {
+  transition: 0.2s;
+}
+
+.application-form button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  transform: translateY(-2px);
+}
+
+.application-form-section {
+  transition: 0.3s;
+}
+
+.application-form-section.editing {
+  background-color: #edf7f5;
+  border-color: #0f766e;
+  transform: scale(1.01);
+}
+
+.success-message {
+  margin-top: 16px;
+  padding: 10px;
+  color: #166534;
+  background-color: #dcfce7;
+  border: 1px solid #86efac;
+  border-radius: 6px;
+  animation: messageFade 2s;
+}
+
+@keyframes messageFade {
+  0% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
