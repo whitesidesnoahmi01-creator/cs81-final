@@ -8,9 +8,11 @@
 .app-header {
   margin-bottom: 32px;
 }
+
 .app-header h1 {
   margin-bottom: 8px;
 }
+
 .applications-section {
   background-color: white;
   border: 1px solid var(--border);
