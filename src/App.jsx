@@ -3,42 +3,47 @@ import "./App.css";
 
 function App() {
   const [applications, setApplications] = useState(() => {
-  const savedApplications = localStorage.getItem("applications");
+    const savedApplications = localStorage.getItem("applications");
 
-  if (savedApplications) {
-    return JSON.parse(savedApplications);
-  }
+    if (savedApplications) {
+      return JSON.parse(savedApplications);
+    }
 
-  return [
-    {
-      id: 1,
-      company: "Spotify",
-      position: "Frontend Intern",
-      dateApplied: "2026-07-25",
-      status: "Applied",
-    },
-    {
-      id: 2,
-      company: "Amazon",
-      position: "Cloud Support Intern",
-      dateApplied: "2026-07-28",
-      status: "Interviewing",
-    },
-    {
-      id: 3,
-      company: "Adobe",
-      position: "Software Engineer Intern",
-      dateApplied: "2026-07-30",
-      status: "Rejected",
-    },
-  ];
-});
+    return [
+      {
+        id: 1,
+        company: "Spotify",
+        position: "Frontend Intern",
+        dateApplied: "2026-07-25",
+        status: "Applied",
+      },
+      {
+        id: 2,
+        company: "Amazon",
+        position: "Cloud Support Intern",
+        dateApplied: "2026-07-28",
+        status: "Interviewing",
+      },
+      {
+        id: 3,
+        company: "Adobe",
+        position: "Software Engineer Intern",
+        dateApplied: "2026-07-30",
+        status: "Rejected",
+      },];});
+
+  const [formData, setFormData] = useState({
+    company: "",
+    position: "",
+    dateApplied: "",
+    status: "Applied",
+  });
 
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
   localStorage.setItem("applications", JSON.stringify(applications));
-}, [applications]);
+  }, [applications]);
 
   function handleChange(event) {
     const { name, value } = event.target;
