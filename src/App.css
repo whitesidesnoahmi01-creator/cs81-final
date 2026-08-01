@@ -8,11 +8,9 @@
 .app-header {
   margin-bottom: 32px;
 }
-
 .app-header h1 {
   margin-bottom: 8px;
 }
-
 .applications-section {
   background-color: white;
   border: 1px solid var(--border);
@@ -32,7 +30,6 @@
 .section-heading p {
   margin: 0;
 }
-
 .applications-table {
   width: 100%;
   border-collapse: collapse;
@@ -51,4 +48,93 @@
 
 .applications-table tbody tr:hover {
   background-color: var(--accent-bg);
+}
+
+.application-form-section {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+
+.application-form-section h2 {
+  margin-top: 0;
+}
+
+.application-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font: inherit;
+  color: var(--text-h);
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.application-form button {
+  padding: 11px 18px;
+  font: inherit;
+  color: white;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: end;
+}
+
+.application-form button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .application-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.delete-button {
+  padding: 6px 12px;
+  font: inherit;
+  color: #b42318;
+  background-color: #fff5f5;
+  border: 1px solid #f1b8b3;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #fee2e2;
+}
+
+.edit-button {
+  padding: 6px 12px;
+  font: inherit;
+  color: #1f4d48;
+  background-color: #edf7f5;
+  border: 1px solid #9fcac5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #d9efec;
 }
