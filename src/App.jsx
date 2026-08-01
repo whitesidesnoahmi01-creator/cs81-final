@@ -107,7 +107,6 @@ function App() {
   const updatedApplications = applications.filter((application) => {
     return application.id !== id;
   });
-
   setApplications(updatedApplications);
 }
 
@@ -118,7 +117,6 @@ function App() {
       dateApplied: application.dateApplied,
       status: application.status,
     });
-
     setEditingId(application.id);
   }
 
